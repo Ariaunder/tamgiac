@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xac dinh tam giac</title>
+
+</head>
+<body>
+<form action="#">
+    <p>A</p>
+    <input type="text" id="canh1">
+    <p>B</p>
+    <input type="text" id="canh2">
+    <p>C</p>
+    <input type="text" id="canh3">
+    
+    <button onclick="Tinh()" value="check">Tính</button>
+    <input type="reset" value="Reset">
+</form>
+</body>
+<script>
+    function tinh() {
+        let a = parseFloat(document.getElementById('edge1').value);
+        let b = parseFloat(document.getElementById('edge2').value);
+        let c = parseFloat(document.getElementById('edge3').value);
+        if (a + b > c && a + c > b && b + c > a) {
+            if (a ** 2 == b ** 2 + c ** 2 || b ** 2 == a ** 2 + c ** 2 || c ** 2 == a ** 2 + b ** 2) {
+                alert('Ðây là tam giác vuông')
+            }
+            else if (a == b && b == c && c == a) {
+                alert('Ðây là tam giác d?u')
+            }
+            else if (a == b || b == c || a == c) {
+                alert('Ðây là tam giác cân')
+            }
+            else {
+                alert('Ðây là tam giác')
+            }
+            let P = a + b + c;
+            let S = Math.sqrt((a ** 2 + b ** 2 + c ** 2) ** 2 - 2 * (a ** 4 + b ** 4 + c ** 4)) / 4;
+            document.getElementById('perimeter').value = P;
+            document.getElementById('area').value = S;
+        }
+        else {
+            alert('Không ph?i 3 c?nh c?a 1 tam giác')
+        }
+    }
+</script>
+</html>
